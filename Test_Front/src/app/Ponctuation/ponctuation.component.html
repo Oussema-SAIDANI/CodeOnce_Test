@@ -1,0 +1,19 @@
+
+<div class="row" style="width: 60%;margin-left: 30%;">
+  <div class="col-sm-8 col-sm-offset">
+    <form role="form" [formGroup]="PoncForm">
+      <div class="form-group">
+        <label for="texte" style="font-weight: bold;">Veuillez saisir un texte</label>
+        <input type="text" class="form-control" formControlName="texte" [(ngModel)]="textPonc">
+      </div>
+      <div class="alert alert-danger" *ngIf="PoncForm.controls['texte'].errors && (PoncForm.controls['texte'].touched||PoncForm.controls['texte'].dirty)">
+        <div [hidden]="!PoncForm.controls['texte'].errors.required">Le texte est obligatoire ! </div>
+    </div>
+      <button type="submit" class="btn btn-success" [disabled]="PoncForm.pristine || PoncForm.invalid" (click)="ponctuation()">Nombre des ponctuations</button>
+      
+        <label class="bouton">{{nombre}}</label>
+      
+    </form>
+  </div>
+ 
+</div>
